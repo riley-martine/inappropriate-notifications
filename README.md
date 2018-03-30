@@ -11,10 +11,9 @@ Using users from https://randomuser.me
 python3.6+
 
 ## Usage
-`python notify.py`
+`python notify.py <time between notifications (optional)>`
 
 ## Caveats
 * Only tested on linux
 * Relies on notify-send
 * Icons are for Mac apps and need to be replaced with the ones you use
-* Must be run manually with another script
