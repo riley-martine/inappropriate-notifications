@@ -60,7 +60,9 @@ if __name__ == "__main__":
     time_between = 10 # in seconds
     if len(sys.argv) > 1:
         time_between = int(sys.argv[1])
+
+    time_range = list(range(int(0.5*time_between), 2*time_between))
     
     while True:
-        time.sleep(time_between)
+        time.sleep(random.choice(time_range))
         notify_me()
