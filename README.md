@@ -13,7 +13,11 @@ python3.6+
 ## Usage
 `python notify.py <time between notifications (optional)>`
 
-## Caveats
+## Caveats (To fix)
 * Only tested on linux
 * Relies on notify-send
 * Icons are for Mac apps and need to be replaced with the ones you use
+* Notifications don't stay very long
+* No fields on notifications (reply, dismiss) where applicable
+* Does not pull names/images from people you know when applicable
+* Only suited to work env -- students don't need messages about getting fired
