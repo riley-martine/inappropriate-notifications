@@ -7,8 +7,10 @@ from urllib.request import urlopen
 import requests # do we use requests and urllib? yes, yes we do.
 import time
 import sys
+from os import listdir, name
+from win10toast import ToastNotifier
 
-with open("notifications.json") as notify_file:
+with open("notifications.json", encoding="utf8") as notify_file:
     notifications = json.loads(notify_file.read())
 
 
@@ -37,13 +39,17 @@ def notify_me():
     title = notification['title']
     escapables = ['!', '\'', '"', '$']
     content = notification['content'].replace("'", "\\\'").replace("\"", "\\\"")
-        # https://xkcd.com/1638/
-    icon = str((Path('icons') / notification['icon']).resolve())
+        # https://xkcd.co/1638/
+    if name == 'nt':
+        icon = 'icons/%s' %notification['icon']
+    else:
+        icon = str((Path('icons') / notification['icon']).resolve())
     
     for gender in ["female", "male"]: # in case they add the ability to get more
         # put "female" first because "male" is within female
         if gender in title and icon in title:
             title, icon = get_user(gender, title)
+            print(icon)
         elif gender in title:
             title = get_user(gender, title, get_icon=False)
          
@@ -52,9 +58,22 @@ def notify_me():
 
         if gender in icon:
            tmp, icon = get_user(gender, "")
+           print(icon)
     
-    # Used w/o shell=True so that escaping works
-    subprocess.call(['notify-send', title, content, f"--icon={icon}"])
+    if name == 'nt':
+        print(icon)
+        if 'thumb' in icon:
+            if 'female' in title:
+                icon = 'images/women/' + random.choice(listdir('images/women/'))
+            else:
+                icon = 'images/men/' + random.choice(listdir('images/men/'))
+        else:
+            icon = icon[:len(icon) - 3] + 'ico'
+        toaster = ToastNotifier()
+        toaster.show_toast(title, content, icon_path=icon, duration=10)
+    else:
+        # Used w/o shell=True so that escaping works
+        subprocess.call(['notify-send', title, content, f"--icon={icon}"])
 
 if __name__ == "__main__":
     time_between = 10 # in seconds
