@@ -7,12 +7,14 @@ from urllib.request import urlopen
 import requests # do we use requests and urllib? yes, yes we do.
 import time
 import sys
+from os import listdir, name as os_name
+from win10toast import ToastNotifier
 
-with open("notifications.json") as notify_file:
+with open("notifications.json", encoding="utf8") as notify_file:
     notifications = json.loads(notify_file.read())
 
 
-def get_user(gender, string, get_icon=True):
+def old_get_user(gender, string, get_icon=True):
     """Get a username and icon to go with it, replace gender in string."""
     # no check becuase this is cheap
     r = urlopen(f"https://randomuser.me/api/?gender={gender}")
@@ -31,30 +33,41 @@ def get_user(gender, string, get_icon=True):
         return string, icon
     return string
 
+def get_user(gender, string, get_icon=True):
+    icons = listdir('images/' + gender)
+    icons.sort()
+    icon = random.choice(icons)
+    if os_name == 'nt' and icon[len(icon) - 3:] != 'ico':
+        icon = icons[icons.index(icon) - 1]
+    name = icon[:-4]
+    icon = 'images/' + gender + '/' + icon
+    string = string.replace(f"*{gender}", name)
+    if get_icon:
+        return string, icon
+    return string
 
 def notify_me():
     notification = random.choice(notifications)
     title = notification['title']
     escapables = ['!', '\'', '"', '$']
     content = notification['content'].replace("'", "\\\'").replace("\"", "\\\"")
-        # https://xkcd.com/1638/
-    icon = str((Path('icons') / notification['icon']).resolve())
+        # https://xkcd.co/1638/
+    if os_name == 'nt':
+        icon = 'icons/%sico' %notification['icon'][:-3]
+    else:
+        icon = str((Path('icons') / notification['icon']).resolve())
     
-    for gender in ["female", "male"]: # in case they add the ability to get more
-        # put "female" first because "male" is within female
-        if gender in title and icon in title:
-            title, icon = get_user(gender, title)
-        elif gender in title:
-            title = get_user(gender, title, get_icon=False)
-         
-        if gender in content:
-            content = get_user(gender, content, get_icon=False)
-
-        if gender in icon:
-           tmp, icon = get_user(gender, "")
-    
-    # Used w/o shell=True so that escaping works
-    subprocess.call(['notify-send', title, content, f"--icon={icon}"])
+    print(icon)
+    if os_name == 'nt':
+        if 'female' in title or icon == 'icons/female/*femico':
+            title, icon = get_user('female', title)
+        elif 'male' in title or icon == 'icons/male/*mico':
+            title, icon = get_user('male', title)
+        toaster = ToastNotifier()
+        toaster.show_toast(title, content, icon_path=icon, duration=10)
+    else:
+        # Used w/o shell=True so that escaping works
+        subprocess.call(['notify-send', title, content, f"--icon={icon}"])
 
 if __name__ == "__main__":
     time_between = 10 # in seconds
