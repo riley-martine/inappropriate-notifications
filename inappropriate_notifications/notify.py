@@ -17,8 +17,8 @@ else:
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 #TODO have different files for profession, age, location, etc
 NOTIFICATION_PATH = PROJECT_ROOT / 'inappropriate_notifications' / 'notifications.json'
-IMAGES_PATH       = PROJECT_ROOT / 'images'
-ICONS_PATH        = PROJECT_ROOT / 'icons'
+IMAGES_PATH       = PROJECT_ROOT / 'inappropriate_notifications' / 'images'
+ICONS_PATH        = PROJECT_ROOT / 'inappropriate_notifications' / 'icons'
 
 
 with NOTIFICATION_PATH.open('r', encoding="utf8") as notify_file:

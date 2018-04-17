@@ -12,9 +12,12 @@ def readme():
         return f.read()
 
 setup(name='inappropriate-notifications',
-      version='0.1',
+      version='0.3.0',
       description='Display inappropriate notifications at random intervals',
       long_description=readme(),
+      entry_points= {
+        'console_scripts': ['inappropriate-notifications=inappropriate_notifications.command_line:main'],
+      },
       classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Win32 (MS Windows)',

@@ -1,2 +1,5 @@
 include README.md
 include inappropriate_notifications/*.json
+include inappropriate_notifications/icons/*.*
+include inappropriate_notifications/images/male/*.*
+include inappropriate_notifications/images/female/*.*
