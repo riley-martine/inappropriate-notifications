@@ -17,13 +17,15 @@ python3.6+
 win10toast (`pip install win10toast`)
 
 ## Usage
-`python notify.py <time between notifications (optional)>`
+`git clone https://github.com/riley-martine/inappropriate-notifications.git`
+`cd inappropriate-notifications`
+`python3.6 setup.py install`
+`inappropriate-notifications`
 
 ## Caveats (To fix)
 * Only tested on Ubuntu and Windows
 * Relies on libnotify on Linux
 * Icons are for Mac apps and need to be replaced with the ones you use
-* Notifications don't stay very long
 * No fields on notifications (reply, dismiss) where applicable
 * Does not pull names/images from people you know when applicable
 * Only suited to work env -- students don't need messages about getting fired
