@@ -18,8 +18,11 @@ win10toast (`pip install win10toast`)
 
 ## Usage
 `git clone https://github.com/riley-martine/inappropriate-notifications.git`
+
 `cd inappropriate-notifications`
+
 `python3.6 setup.py install`
+
 `inappropriate-notifications`
 
 ## Caveats (To fix)
