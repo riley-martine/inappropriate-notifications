@@ -11,14 +11,14 @@ def install_requires():
     return []
 
 def readme():
-    with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+    with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
         return f.read()
 
 setup(name='inappropriate-notifications',
-      version='0.3.1', # using semantic versioning
+      version='0.3.2', # using semantic versioning
       description='Display inappropriate notifications at random intervals',
       long_description=readme(),
-      long_description_content_type='text/markdown',
+      long_description_content_type='text/x-rst',
       license='MIT',
       entry_points= {
         'console_scripts': ['inappropriate-notifications=inappropriate_notifications.command_line:main'],
