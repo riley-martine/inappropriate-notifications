@@ -1,5 +1,7 @@
 Inappropriate Notifications
 ===========================
+.. image:: https://badge.fury.io/py/inappropriate-notifications.svg
+    :target: https://badge.fury.io/py/inappropriate-notifications
 
 Ever want to get inappropriate notifications on your computer while
 you're presenting? Well now you can!
@@ -26,16 +28,31 @@ Windows
 
 python3.6+ win10toast (installed automatically)
 
-Usage
------
+Installation
+------------
+``pip install inappropriate-notifications``
 
+Alternative installation
+~~~~~~~~~~~~~~~~~~~~~~~~
 ``git clone https://github.com/riley-martine/inappropriate-notifications.git``
 
 ``cd inappropriate-notifications``
 
 ``python3.6 setup.py install``
 
-``inappropriate-notifications``
+
+Usage
+-----
+Display help: ``inappropriate-notifications -h``
+
+Display one inappropriate notification: ``inappropriate-notifications --once``
+
+Display notifications about 2 seconds apart: ``inappropriate-notifications -t 2``
+
+Display 20 notifications about 5 seconds apart: ``inappropriate-notifications -c 20 -t 5``
+
+
+
 
 Caveats (To fix / to do)
 ------------------------
@@ -47,7 +64,7 @@ Caveats (To fix / to do)
 -  Does not pull names/images from people you know when applicable
 -  Only suited to work env -- students don't need messages about getting
    fired
--  Not a pypi package
 -  No tests
+-  No version command line argument
 -  ctrl-c when running command line should fail nicer
 -  Right-to-left names mess up first line
