@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import time
 import sys
-from os import listdir, name as os_name
+from os import name as os_name
 
 if os_name == 'nt':
     from win10toast import ToastNotifier
@@ -16,17 +16,19 @@ else:
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 #TODO have different files for profession, age, location, etc
-NOTIFICATION_PATH = PROJECT_ROOT / 'inappropriate_notifications' / 'notifications.json'
-IMAGES_PATH       = PROJECT_ROOT / 'inappropriate_notifications' / 'images'
-ICONS_PATH        = PROJECT_ROOT / 'inappropriate_notifications' / 'icons'
+NOTIF_PATH = PROJECT_ROOT / 'inappropriate_notifications' / 'notifications.json'
+IMAGE_PATH = PROJECT_ROOT / 'inappropriate_notifications' / 'images'
+ICONS_PATH = PROJECT_ROOT / 'inappropriate_notifications' / 'icons'
 
 
-with NOTIFICATION_PATH.open('r', encoding="utf8") as notify_file:
-    notifications = json.loads(notify_file.read())
+with NOTIF_PATH.open('r', encoding="utf8") as notify_file:
+    NOTIFICATIONS = json.loads(notify_file.read())
 
 
 def get_user(gender, string, get_icon=True):
-    gendered_images_path = IMAGES_PATH / gender
+    """Get a user with specified gender, substitute their name into a string,
+    and optionally return icon."""
+    gendered_images_path = IMAGE_PATH / gender
     images = [x for x in gendered_images_path.iterdir() if x.suffix == ICON_FILETYPE]
     image = random.choice(images)
     string = string.replace(f"*{gender}", image.stem)
@@ -35,12 +37,13 @@ def get_user(gender, string, get_icon=True):
     return string
 
 def notify_me():
-    notification = random.choice(notifications)
+    """Generate a random notification and display it onscreen."""
+    notification = random.choice(NOTIFICATIONS)
     title = notification['title']
-    escapables = ['!', '\'', '"', '$']
+    # escapables = ['!', '\'', '"', '$']
     content = notification['content'].replace("'", "\\\'").replace("\"", "\\\"")
         # https://xkcd.co/1638/
-    
+
     icon = str((ICONS_PATH / notification['icon']))
 
     if '*female' in title or '*female' in icon:
@@ -61,14 +64,14 @@ def notify_me():
         subprocess.call(['notify-send', title, content, f"--icon={icon}", "--expire-time=10000"])
 
 def run_random_notifications(seconds_between=10, number_notifications=100):
+    """Create random notifications and display them, at random intervals."""
     time_range = list(range(int(0.5*seconds_between), 2*seconds_between)) or [0.1]
 
-    for _ in range(number_notifications): 
+    for _ in range(number_notifications):
         #TODO make this spawn a thread, and add another function to kill it
         time.sleep(random.choice(time_range))
         notify_me()
 
-#TODO argparse
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         run_random_notifications(int(sys.argv[1]))
