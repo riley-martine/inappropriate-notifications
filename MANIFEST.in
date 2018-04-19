@@ -1,4 +1,4 @@
-include README.md
+include README.rst
 include inappropriate_notifications/*.json
 include inappropriate_notifications/icons/*.*
 include inappropriate_notifications/images/male/*.*
