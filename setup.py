@@ -15,7 +15,7 @@ def readme():
         return f.read()
 
 setup(name='inappropriate-notifications',
-      version='0.3.2', # using semantic versioning
+      version='0.3.3', # using semantic versioning
       description='Display inappropriate notifications at random intervals',
       long_description=readme(),
       long_description_content_type='text/x-rst',
