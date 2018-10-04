@@ -1,27 +1,28 @@
 """Display innapropriate notifications at random intervals."""
 import json
 import random
-from pathlib import Path
 import subprocess
-import time
 import sys
+import time
 from os import name as os_name
+from pathlib import Path
 
-if os_name == 'nt':
+if os_name == "nt":
     from win10toast import ToastNotifier
-    ICON_FILETYPE = '.ico'
+
+    ICON_FILETYPE = ".ico"
     TOASTER = ToastNotifier()
 else:
-    ICON_FILETYPE = '.jpg'
+    ICON_FILETYPE = ".jpg"
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-#TODO have different files for profession, age, location, etc
-NOTIF_PATH = PROJECT_ROOT / 'inappropriate_notifications' / 'notifications.json'
-IMAGE_PATH = PROJECT_ROOT / 'inappropriate_notifications' / 'images'
-ICONS_PATH = PROJECT_ROOT / 'inappropriate_notifications' / 'icons'
+# TODO have different files for profession, age, location, etc
+NOTIF_PATH = PROJECT_ROOT / "inappropriate_notifications" / "notifications.json"
+IMAGE_PATH = PROJECT_ROOT / "inappropriate_notifications" / "images"
+ICONS_PATH = PROJECT_ROOT / "inappropriate_notifications" / "icons"
 
 
-with NOTIF_PATH.open('r', encoding="utf8") as notify_file:
+with NOTIF_PATH.open("r", encoding="utf8") as notify_file:
     NOTIFICATIONS = json.loads(notify_file.read())
 
 
@@ -36,41 +37,46 @@ def get_user(gender, string, get_icon=True):
         return string, image
     return string
 
+
 def notify_me():
     """Generate a random notification and display it onscreen."""
     notification = random.choice(NOTIFICATIONS)
-    title = notification['title']
+    title = notification["title"]
     # escapables = ['!', '\'', '"', '$']
-    content = notification['content'].replace("'", "\\\'").replace("\"", "\\\"")
-        # https://xkcd.co/1638/
+    content = notification["content"].replace("'", "\\'").replace('"', '\\"')
+    # https://xkcd.co/1638/
 
-    icon = str((ICONS_PATH / notification['icon']))
+    icon = str((ICONS_PATH / notification["icon"]))
 
-    if '*female' in title or '*female' in icon:
-        title, icon = get_user('female', title)
-    elif '*male' in title or '*male' in icon:
-        title, icon = get_user('male', title)
+    if "*female" in title or "*female" in icon:
+        title, icon = get_user("female", title)
+    elif "*male" in title or "*male" in icon:
+        title, icon = get_user("male", title)
 
-    if '*female' in content:
-        content = get_user('female', content, get_icon=False)
-    elif '*male' in content:
-        content = get_user('male', content, get_icon=False)
+    if "*female" in content:
+        content = get_user("female", content, get_icon=False)
+    elif "*male" in content:
+        content = get_user("male", content, get_icon=False)
 
-    if os_name == 'nt':
+    if os_name == "nt":
         TOASTER.show_toast(title, content, icon_path=icon, duration=10)
     else:
         # Used w/o shell=True so that escaping works
         # print(f"title: {title}    icon: {icon}")
-        subprocess.call(['notify-send', title, content, f"--icon={icon}", "--expire-time=10000"])
+        subprocess.call(
+            ["notify-send", title, content, f"--icon={icon}", "--expire-time=10000"]
+        )
+
 
 def run_random_notifications(seconds_between=10, number_notifications=100):
     """Create random notifications and display them, at random intervals."""
-    time_range = list(range(int(0.5*seconds_between), 2*seconds_between)) or [0.1]
+    time_range = list(range(int(0.5 * seconds_between), 2 * seconds_between)) or [0.1]
 
     for _ in range(number_notifications):
-        #TODO make this spawn a thread, and add another function to kill it
+        # TODO make this spawn a thread, and add another function to kill it
         time.sleep(random.choice(time_range))
         notify_me()
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
