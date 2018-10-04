@@ -20,7 +20,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 NOTIF_PATH = PROJECT_ROOT / "inappropriate_notifications" / "notifications.json"
 IMAGE_PATH = PROJECT_ROOT / "inappropriate_notifications" / "images"
 ICONS_PATH = PROJECT_ROOT / "inappropriate_notifications" / "icons"
-
+ICON = lambda name: str(ICONS_PATH / name)
 
 with NOTIF_PATH.open("r", encoding="utf8") as notify_file:
     NOTIFICATIONS = json.loads(notify_file.read())
@@ -38,15 +38,47 @@ def get_user(gender, string, get_icon=True):
     return string
 
 
+def get_icon(icon_name):
+    """Locate icon file or default icon name, depending on platform."""
+    icon_files = {
+        "calendar": "cal.ico",
+        "mail": "mail.png",
+        "messenger": "imessage.png",
+        "grindr": "grindr.png",
+        "facebook": "facebook.png",
+        "slack": "slack.png",
+        # The user-icon getting code is reached later
+        # I'm doing it this way so images match up with names.
+        "*female": "*female",
+        "*male": "*male",
+    }
+    icon_default_names = {
+        # Is this cross platform enough or does it depend on having a certain icon
+        #    pack installed?
+        "calendar": "gnome-calendar",
+        "mail": "gmail",  # Note: using google/fb icons because of recognizability
+        "messenger": "fbmessenger",
+        "grindr": ICON("grindr.png"),
+        "facebook": "facebook",
+        "slack": "slack",
+        "*female": "*female",
+        "*male": "*male",
+    }
+    if os_name == "nt":
+        return ICON(icon_files[icon_name])  # Perhaps better error handling?
+    # linux
+    return icon_default_names[icon_name]
+
+
 def notify_me():
     """Generate a random notification and display it onscreen."""
     notification = random.choice(NOTIFICATIONS)
     title = notification["title"]
     # escapables = ['!', '\'', '"', '$']
     content = notification["content"].replace("'", "\\'").replace('"', '\\"')
-    # https://xkcd.co/1638/
+    # https://xkcd.com/1638/
 
-    icon = str((ICONS_PATH / notification["icon"]))
+    icon = get_icon(notification["icon"])
 
     if "*female" in title or "*female" in icon:
         title, icon = get_user("female", title)

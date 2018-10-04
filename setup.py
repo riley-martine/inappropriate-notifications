@@ -20,7 +20,7 @@ def readme():
 
 setup(
     name="inappropriate-notifications",
-    version="0.3.5",  # using semantic versioning
+    version="0.3.6",  # using semantic versioning
     description="Display inappropriate notifications at random intervals",
     long_description=readme(),
     long_description_content_type="text/x-rst",

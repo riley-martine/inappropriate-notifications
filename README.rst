@@ -6,7 +6,7 @@ Inappropriate Notifications
 Ever want to get inappropriate notifications on your computer while
 you're presenting? Well now you can!
 
-Based off of the homepage of https://muzzleapp.com/. Check out their
+Based off the homepage of https://muzzleapp.com/. Check out their
 website to see an example of what this does.
 
 This program uses notifications from
@@ -54,12 +54,12 @@ Display 20 notifications about 5 seconds apart: ``inappropriate-notifications -c
 
 
 
-Caveats (To fix / to do)
+Caveats (To fix / to-do)
 ------------------------
 
--  Only tested on Ubuntu and Windows 10 (MacOS and Windows 7 on roadmap)
+-  Only tested on Debian+Gnome and (at some point) Windows 10 (MacOS and Windows 7 on roadmap)
 -  Relies on libnotify on Linux
--  Icons are for Mac apps and need to be replaced with the ones you use
+-  Icons are for Mac apps when on windows
 -  No fields on notifications (reply, dismiss) where applicable
 -  Does not pull names/images from people you know when applicable
 -  Only suited to work env -- students don't need messages about getting

@@ -2,7 +2,7 @@
     {
         "title": "Therapy Appointment",
         "content": "In 15 minutes",
-        "icon": "cal.ico",
+        "icon": "calendar",
         "actions": [
             "Complete",
             "Later"
@@ -11,7 +11,7 @@
     {
         "title": "*female sent you a wink!",
         "content": "Oh my god, you are so dirty! I love it!!!!!!!!!",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -20,12 +20,12 @@
     {
         "title": "Mistress *female",
         "content": "7PM. Usual spot. Naked and kneeling, slave.",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "Ebay Auction Alert",
         "content": "Your bid on \"Life-size Blow-Up Doll\" is no longer the highest bid.",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -39,7 +39,7 @@
     {
         "title": "Twitter",
         "content": "@Brazzers mentioned you on Twitter",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -48,7 +48,7 @@
     {
         "title": "Job Interview",
         "content": "Next Friday",
-        "icon": "cal.ico",
+        "icon": "calendar",
         "actions": [
             "Complete",
             "Later"
@@ -57,7 +57,7 @@
     {
         "title": "Your Fleshlight has been shipped!",
         "content": "You're on a one way ticket to pleasuretown",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -66,12 +66,12 @@
     {
         "title": "*female",
         "content": "Seriously, he just like drooled all over me.",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "YouPorn: Billing Issue",
         "content": "We couldn't charge your credit card ending in 3241.",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -80,7 +80,7 @@
     {
         "title": "Ashley Madison: New Message",
         "content": "Are you sure your wife won't find out?",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -89,7 +89,7 @@
     {
         "title": "OKCupid: He's Totally Into You!",
         "content": "A 78-year-old man in San Diego likes you!",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -98,12 +98,12 @@
     {
         "title": "*male",
         "content": "I think *female is cheating on you.",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "Public Intoxication Court Date",
         "content": "Tomorrow",
-        "icon": "cal.ico",
+        "icon": "calendar",
         "actions": [
             "Complete",
             "Later"
@@ -112,7 +112,7 @@
     {
         "title": "Return Request Denied",
         "content": "There are no refunds on dildos, sorry!",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -121,7 +121,7 @@
     {
         "title": "Amazon",
         "content": "Customers who bought \"Leather Sex Swing\" also liked \"Leather Cross\"",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -145,42 +145,42 @@
     {
         "title": "*female",
         "content": "PLZ tell me u didnt steal Vinny's $$$!",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "Mom",
         "content": "Hey sweetie! Did you figure out what that rash is? xoxo",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "Mom",
         "content": "What's a \"milf?\" Your friends keep calling me that.",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "Dad",
         "content": "You should know that I'm very disappointed in you.",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*male",
         "content": "Did you make it home okay? You were fucked up..",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*male The Dealer",
         "content": "Kilo coming in on sat. How much u want?",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "Uncle *male",
         "content": "WOOOO!! #MAKEAMERICAGREATAGAIN!",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*male",
         "content": "idk, is this big?! ;)",
-        "icon": "grindr.png",
+        "icon": "grindr",
         "image": "dickpic.png"
     },
     {
@@ -191,52 +191,47 @@
     {
         "title": "*male",
         "content": "Fuck this client. Seriously.",
-        "icon": "slack.png"
-    },
-    {
-        "title": "*male",
-        "content": "THESE ARE COMING UP ON YOUR SCREEN!!!!!!!",
-        "icon": "slack.png"
+        "icon": "slack"
     },
     {
         "title": "Aunt *female",
         "content": "Please don't leave your buttplugs on the bathroom counter.",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*female",
         "content": "I'm going to quit. Fuck this place.",
-        "icon": "slack.png"
+        "icon": "slack"
     },
     {
         "title": "*female",
         "content": "Your name is on the wall in HR. What did you do?",
-        "icon": "slack.png"
+        "icon": "slack"
     },
     {
         "title": "*female",
         "content": "We are SO overcharging this moron.",
-        "icon": "slack.png"
+        "icon": "slack"
     },
     {
         "title": "*female",
         "content": "Heads up, *female wants to fire you",
-        "icon": "slack.png"
+        "icon": "slack"
     },
     {
         "title": "*female",
         "content": "Your boss sounds like a tool.",
-        "icon": "slack.png"
+        "icon": "slack"
     },
     {
         "title": "*female",
         "content": "Can't wait. I got extra thick straps this time \ud83d\ude09",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "Facebook",
         "content": "Jen added 32 photos of you to \"BDSMFest 2017\"",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -245,42 +240,42 @@
     {
         "title": "*female sent you a message.",
         "content": "Got your dick pic. Is that...it?",
-        "icon": "facebook.png"
+        "icon": "facebook"
     },
     {
         "title": "*male sent you a message.",
         "content": "Baby, I'm sorry. PLZ talk to me?",
-        "icon": "facebook.png"
+        "icon": "facebook"
     },
     {
         "title": "Fuckboy",
         "content": "Netflix n chill? hmu \ud83d\ude07 \ud83d\ude08",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*female",
         "content": "Did you break up with *male yet?",
-        "icon": "facebook.png"
+        "icon": "messenger"
     },
     {
         "title": "Vinny",
         "content": "Yo wheres my fuckin money? I'm outside ur office.",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*male",
         "content": "Vinny is looking for you. Seems pissed.",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*male",
         "content": "The password for tonight's orgy is \"astroglide\".",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "STD Test",
         "content": "Tomorrow",
-        "icon": "cal.ico",
+        "icon": "calendar",
         "actions": [
             "Complete",
             "Later"
@@ -289,7 +284,7 @@
     {
         "title": "Dad",
         "content": "Mom and I think it's time for you to move out.",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*female Crazy Ex",
@@ -299,17 +294,17 @@
     {
         "title": "*female",
         "content": "They only had the 11\" one. Hope that's ok?",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*male",
         "content": "4th floor employee bathroom. 20 mins?",
-        "icon": "grindr.png"
+        "icon": "grindr"
     },
     {
         "title": "*female",
         "content": "Which doctor did you go to for the crabs?",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*female",
@@ -319,7 +314,7 @@
     {
         "title": "*male",
         "content": "Which hepatitis is curable? A is fine, right?",
-        "icon": "imessage.png"
+        "icon": "messenger"
     },
     {
         "title": "*female",
@@ -329,7 +324,7 @@
     {
         "title": "StackOverflow",
         "content": "New answer for \"How do I add numbers with jQuery?\"",
-        "icon": "mail.png",
+        "icon": "mail",
         "actions": [
             "Reply",
             "Delete"
@@ -338,7 +333,7 @@
     {
         "title": "*male",
         "content": "HR says \"genital warts\" aren't covered.",
-        "icon": "slack.png"
+        "icon": "slack"
     },
     {
         "title": "BFF \ud83d\udc97",
