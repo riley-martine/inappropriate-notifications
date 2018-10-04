@@ -1,5 +1,7 @@
 *.swp
 *.pyc
+.mypy_cache/
+inappropriate_notifications/version.py
 
 dist/
 
