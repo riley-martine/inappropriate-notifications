@@ -4,6 +4,8 @@ from os import path
 
 from setuptools import setup
 
+VERSION = "0.3.7"  # using semantic versioning
+
 here = path.abspath(path.dirname(__file__))
 
 
@@ -18,9 +20,12 @@ def readme():
         return f.read()
 
 
+with open(path.join(here, "inappropriate_notifications", "version.py"), "w") as f:
+    f.write(f"VERSION = '{VERSION}'")
+
 setup(
     name="inappropriate-notifications",
-    version="0.3.6",  # using semantic versioning
+    version=VERSION,
     description="Display inappropriate notifications at random intervals",
     long_description=readme(),
     long_description_content_type="text/x-rst",

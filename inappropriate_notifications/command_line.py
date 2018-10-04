@@ -3,6 +3,8 @@ import argparse
 
 from inappropriate_notifications import notify_me, run_random_notifications
 
+from .version import VERSION
+
 
 def main():
     """Main function. Uses argparse to generate and run a parser."""
@@ -35,8 +37,12 @@ def main():
         help="Number of notifications to display before ending program.",
     )
 
+    parser.add_argument("--version", "-V", action="store_true")
+
     args = parser.parse_args()
-    if args.function == notify_me:
+    if args.version:
+        print(f"Inappropriate Notifications {VERSION}")
+    elif args.function == notify_me:
         args.function()
     else:
         args.function(
